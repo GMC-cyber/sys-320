@@ -1,1 +1,1 @@
-Get-EventLog -LogName Security -Source Microsoft-Windows-Security-Auditing
+EventLog -LogName system -Source Microsoft-Windows-Winlogon
