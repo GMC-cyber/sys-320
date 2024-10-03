@@ -6,7 +6,7 @@
 #$a = cat .\*.log | select-String 'error'
 #$a[-5..-1]
 <#
-$notfounds = cat .\access.log | select-String ' 404 '
+$notfounds = Get-Content C:\xampp\apache\logs\access.log | select-String ' 404 '
 $regex = [regex] "\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b"
 $ipsUnorganized = $regex.Matches($notfounds)
 $ips = @()
@@ -18,6 +18,7 @@ for($i=0; $i -lt $ipsUnorganized.Count; $i++){
 
 
     $ips = $ips | where-object { $_.IP -like "10.*" }
+    $ips
 #>
 <#
 $ipsoftens = $ips | Where-Object { $_.IP -like "10.*" }
