@@ -22,5 +22,8 @@ for($i=0; $i -lt $ipsUnorganized.Count; $i++){
 #>
 <#
 $ipsoftens = $ips | Where-Object { $_.IP -like "10.*" }
-$counts = $ipsoftens |measure-object -line 
-$counts | Select-Object Count, Name#>
+$counts = $ipsoftens | group-object IP
+$counts | Select-Object Count, Name
+$counts
+
+#>
